@@ -1,0 +1,504 @@
+// My Calculator assignment:
+
+
+import java.awt.Button;
+
+public class CalcDemo extends JApplet implements ActionListener {
+	
+	
+	
+	/**
+	 * Create the applet.
+	 */
+	JTextField textField = new JTextField();
+	//JButton button;
+	JButton button_1;
+	JButton button_2;
+	JButton button_3;
+	JButton button_4;
+	JButton button_5;
+	JButton button_6;
+	JButton button_7;
+	JButton button_8;
+	JButton button_9;
+	JButton button_10;
+	JButton button_11;
+	JButton button_12;
+	JButton button_13;
+	JButton button_14;
+	JButton btnClear;
+	JButton btnLoadXml;
+	JButton btnSaveXml;
+	int n1 = 0;
+	int n2 = 0;
+	int dec1 = 0;
+	int dec2 = 0;
+	int result;
+	int Multiply = 0;
+	int Devide = 0;
+	int Add = 0;
+	int Sub = 0;
+	int n3 = 0;
+	String nothingEntered = "";
+	String ColorCheck;
+	int C1button;
+	int C2button;
+	int C3button, Cswitch;
+	
+	private JTextField textField_1;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
+	
+	public CalcDemo() {
+		//JApplet ja = new JApplet();
+		//ja.setSize(500, 500);
+	     getContentPane().setBackground(Color.white);  //sets the background color to black
+		getContentPane().setLayout(null);
+		
+		
+		JButton button = new JButton("1");
+		buttonGroup.add(button);
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textField.setText("1");
+				
+			}
+		});
+		button.setBounds(12, 82, 97, 25);
+		getContentPane().add(button);
+		//button.setBackground(Color.BLUE);
+		//button.setForeground(Color.WHITE);
+		
+		
+		JButton button_1 = new JButton("2");
+		buttonGroup.add(button_1);
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textField.setText("2");
+				
+			}
+		});
+		button_1.setBounds(122, 82, 97, 25);
+		getContentPane().add(button_1);
+		
+		JButton button_2 = new JButton("3");
+		button_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textField.setText("3");
+				
+			}
+		});
+		button_2.setBounds(233, 82, 97, 25);
+		getContentPane().add(button_2);
+		
+		JButton button_3 = new JButton("4");
+		button_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textField.setText("4");
+				
+			}
+		});
+		button_3.setBounds(334, 82, 97, 25);
+		getContentPane().add(button_3);
+		
+		JButton button_4 = new JButton("5");
+		button_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textField.setText("5");
+			}
+		});
+		button_4.setBounds(12, 132, 97, 25);
+		getContentPane().add(button_4);
+		
+		JButton button_5 = new JButton("6");
+		button_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textField.setText("6");
+			}
+		});
+		button_5.setBounds(122, 132, 97, 25);
+		getContentPane().add(button_5);
+		
+		JButton button_6 = new JButton("7");
+		button_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textField.setText("7");
+			}
+		});
+		button_6.setBounds(233, 132, 97, 25);
+		getContentPane().add(button_6);
+		
+		JButton button_7 = new JButton("8");
+		button_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textField.setText("8");
+			}
+		});
+		button_7.setBounds(334, 132, 97, 25);
+		getContentPane().add(button_7);
+		
+		JButton button_8 = new JButton("9");
+		button_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textField.setText("9");
+			}
+		});
+		button_8.setBounds(12, 184, 97, 25);
+		getContentPane().add(button_8);
+		
+		JButton button_9 = new JButton("*");
+		button_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(textField.getText().equals(nothingEntered)){
+					System.out.println("there is nothing to multiply with");
+					Multiply = 0;
+					Devide = 0;
+					Add = 0;
+					Sub = 0;
+				}
+				else{
+				n1 = Integer.parseInt(textField.getText());
+				textField.setText("");
+				Multiply = 1;
+				Devide = 0;
+				Add = 0;
+				Sub = 0;
+				}
+			}
+		});
+		button_9.setBounds(122, 184, 97, 25);
+		getContentPane().add(button_9);
+		
+		JButton button_10 = new JButton(".");
+		button_10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dec1 =Integer.parseInt(textField.getText());
+				textField.setText(dec1+"."+ 0);
+			}
+		});
+		button_10.setBounds(233, 184, 97, 25);
+		getContentPane().add(button_10);
+		
+		JButton button_11 = new JButton("/");
+		button_11.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(textField.getText().equals(nothingEntered)){
+					System.out.println("there is nothing to divide by");
+					Multiply = 0;
+					Devide = 0;
+					Add = 0;
+					Sub = 0;
+				}
+				else{
+				n1 = Integer.parseInt(textField.getText());
+				textField.setText("");
+				Multiply = 0;
+				Devide = 1;
+				Add = 0;
+				Sub = 0;
+				}
+			}
+		});
+		button_11.setBounds(334, 184, 97, 25);
+		getContentPane().add(button_11);
+		
+		JButton button_12 = new JButton("0");
+		button_12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textField.setText("0");
+				//n1 = Integer.parseInt(textField.getText());
+			}
+		});
+		button_12.setBounds(12, 226, 97, 25);
+		getContentPane().add(button_12);
+		
+		JButton button_13 = new JButton("+");
+		button_13.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(textField.getText().equals(nothingEntered)){
+					System.out.println("there is nothing to Add with");
+					Multiply = 0;
+					Devide = 0;
+					Add = 0;
+					Sub = 0;
+				}
+				else{
+				n1 = Integer.parseInt(textField.getText());
+				textField.setText("");
+				Multiply = 0;
+				Devide = 0;
+				Add = 1;
+				Sub = 0;
+				}
+			}
+		});
+		button_13.setBounds(122, 226, 97, 25);
+		getContentPane().add(button_13);
+		
+		JButton button_14 = new JButton("-");
+		button_14.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(textField.getText().equals(nothingEntered)){
+					System.out.println("there is nothing to subtract with");
+					Multiply = 0;
+					Devide = 0;
+					Add = 0;
+					Sub = 0;
+				}
+				else{
+				n1 = Integer.parseInt(textField.getText());
+				textField.setText("");
+				Multiply = 0;
+				Devide = 0;
+				Add = 0;
+				Sub = 1;
+				//System.out.println("* is : "+ Multiply +" and - is : "+ Sub);
+				}
+			}
+		});
+		button_14.setBounds(231, 226, 97, 25);
+		getContentPane().add(button_14);
+		
+		JButton btnClear = new JButton("Clear");
+		btnClear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Multiply = 0;
+				Devide = 0;
+				Add = 0;
+				Sub = 0;
+				textField.setText("");
+				n1 = 0;
+				n2 = 0;
+			}
+		});
+		btnClear.setBounds(334, 226, 97, 25);
+		getContentPane().add(btnClear);
+		
+		textField = new JTextField();
+		textField.setBounds(122, 13, 208, 40);
+		getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		JButton button_15 = new JButton("=");
+		button_15.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Multiply == 1){
+					n2 = Integer.parseInt(textField.getText());
+					result = n1 * n2;
+					System.out.println("n1 is : "+ n1 +" and n2 is : "+ n2);
+					textField.setText(Integer.toString(result));
+				}
+				if (Add == 1){
+					n2 = Integer.parseInt(textField.getText());
+					result = n1 + n2;
+					System.out.println("n1 is : "+ n1 +" and n2 is : "+ n2);
+					textField.setText(Integer.toString(result));
+				}
+				if (Sub == 1){
+					n2 = Integer.parseInt(textField.getText());
+					result = n1 - n2;
+					System.out.println("n1 is : "+ n1 +" and n2 is : "+ n2);
+					textField.setText(Integer.toString(result));
+				}
+				if (Devide == 1){
+					n2 = Integer.parseInt(textField.getText());
+					result = n1 / n2;
+					System.out.println("n1 is : "+ n1 +" and n2 is : "+ n2);
+					textField.setText(Integer.toString(result));
+				}
+				if(Multiply == 0 && Add == 0 && Sub == 0 && Devide == 0){
+					if(textField.getText().equals(nothingEntered)){
+						System.out.println("nothing was entered");
+					}
+					else{
+						System.out.println("just in case if nothing was entered");
+						
+					}
+				}
+			}
+		});
+		button_15.setBounds(12, 264, 97, 25);
+		getContentPane().add(button_15);
+		button.setBackground(Color.blue);
+		button.setForeground(Color.WHITE);
+		button_1.setBackground(Color.BLUE);
+		button_1.setForeground(Color.WHITE);
+		button_2.setBackground(Color.BLUE);
+		button_2.setForeground(Color.WHITE);
+		button_3.setBackground(Color.BLUE);
+		button_3.setForeground(Color.WHITE);
+		button_4.setBackground(Color.BLUE);
+		button_4.setForeground(Color.WHITE);
+		button_5.setBackground(Color.BLUE);
+		button_5.setForeground(Color.WHITE);
+		button_6.setBackground(Color.BLUE);
+		button_6.setForeground(Color.WHITE);
+		button_7.setBackground(Color.BLUE);
+		button_7.setForeground(Color.WHITE);
+		button_8.setBackground(Color.BLUE);
+		button_8.setForeground(Color.WHITE);
+		button_9.setBackground(Color.BLUE);
+		button_9.setForeground(Color.WHITE);
+		button_10.setBackground(Color.BLUE);
+		button_10.setForeground(Color.WHITE);
+		button_11.setBackground(Color.BLUE);
+		button_11.setForeground(Color.WHITE);
+		button_12.setBackground(Color.BLUE);
+		button_12.setForeground(Color.WHITE);
+		button_13.setBackground(Color.BLUE);
+		button_13.setForeground(Color.WHITE);
+		button_14.setBackground(Color.BLUE);
+		button_14.setForeground(Color.WHITE);
+		button_15.setBackground(Color.BLUE);
+		button_15.setForeground(Color.WHITE);
+		btnClear.setBackground(Color.BLUE);
+		btnClear.setForeground(Color.WHITE);
+		//btnLoadXml.setForeground(Color.BLACK);
+		C1button = button_1.getBackground().getRed();
+		C2button = button_1.getBackground().getBlue();
+		C3button = button_1.getBackground().getGreen();
+		
+		JButton btnSaveXml = new JButton("Save XML");
+		btnSaveXml.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JAXBskeleton skel = new JAXBskeleton();
+				n3 = Integer.parseInt(textField.getText());
+				printf("%d\t",n3);
+				textField.setText("");
+				skel.setResult(n3);
+				skel.getResult();
+				//skel.setColor(button.getForeground());
+				//C1button = button_1.getBackground().getRed();
+				//C2button = button_1.getBackground().getBlue();
+				//C3button = button_1.getBackground().getGreen(); //getContentPane().getBackground().getGreen();
+				System.out.println(C1button+" ,"+ C2button+" ,"+ C3button);
+				skel.setRedColorbackground(C1button);
+				skel.setBlueColorbackground(C2button);
+				skel.setGreenColorbackground(C3button);
+				//skel.setColor(button.getForeground());
+				  try {
+			 
+					File file = new File("xmltest1.xml");
+					JAXBContext jaxbContext = JAXBContext.newInstance(JAXBskeleton.class);
+					Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+			 
+					// output pretty printed
+					jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			 
+					jaxbMarshaller.marshal(skel, file);
+					jaxbMarshaller.marshal(skel, System.out);
+			 
+				      } catch (JAXBException e1) {
+					e1.printStackTrace();
+				      }
+			 
+			}
+
+			private void printf(String string, int n3) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		btnSaveXml.setBounds(122, 264, 97, 25);
+		getContentPane().add(btnSaveXml);
+		
+		JButton btnLoadXml = new JButton("Load XML");
+		buttonGroup.add(btnLoadXml);
+		
+		btnLoadXml.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent arg0) {
+				
+				Cswitch = 0;
+				
+				JAXBskeleton skel = new JAXBskeleton();
+				if(textField_1.getText().equals(nothingEntered)){
+					System.out.println("Name of file was not entered. Please enter the name of Xml file to load.");
+					
+				}
+				
+				else{	
+                
+				try { 
+					JAXBskeleton Lskel = new JAXBskeleton();
+                    File file = new File(textField_1.getText()+".xml"); 
+                    JAXBContext jaxbContext = JAXBContext.newInstance(JAXBskeleton.class); 
+                    //JAXBskeleton.temp = textField_1.getText(); 
+                    Unmarshaller unmarshal = jaxbContext.createUnmarshaller(); 
+                    JAXBskeleton xmlLoad = (JAXBskeleton) unmarshal.unmarshal(file); 
+                      
+                      
+                      
+                      
+                    int n1loaded = xmlLoad.getResult(); 
+                    int n2loaded = xmlLoad.getRedColorbackground(); 
+                    int n3loaded = xmlLoad.getBlueColorbackground(); 
+                    int n4loaded = xmlLoad.getGreenColorbackground(); 
+                    
+                    System.out.println("the Result is: " + n1loaded);
+                    //System.out.println(" and the Background is: ");
+                    //System.out.println("white is: " + Color.white);
+                    //ColorCheck = "[r="+ n2loaded+",g="+ n4loaded+",b="+ n3loaded+"]";
+                    if (Color.blue.getRed() == n2loaded && Color.blue.getGreen() == n4loaded && Color.blue.getBlue() == n3loaded ){
+                    	System.out.println("The background color is blue");
+                    	System.out.println("java.awt.Color[r="+ n2loaded+",g="+ n4loaded+",b="+ n3loaded+"]");
+                    	//cd.btnSaveXml.setBackground(Color.blue); //change button color to different color
+                    	Cswitch = 1;
+                    	//Lskel.setbackgroundcolor(Cswitch);
+                    }
+                    else if (Color.gray.getRed() == n2loaded && Color.gray.getGreen() == n4loaded && Color.gray.getBlue() == n3loaded){
+                    System.out.println("The background color is gray");
+                    System.out.println("java.awt.Color[r="+ n2loaded+",g="+ n4loaded+",b="+ n3loaded+"]");
+                    //cd.btnSaveXml.setBackground(Color.gray);
+                    Cswitch = 2;
+                    //Lskel.setbackgroundcolor(Cswitch);
+                    JButton button_1 = new JButton();
+        			button_1.setBackground(Color.gray);
+        			button_1.repaint();
+        			System.out.println("button 2 color is "+ button_1.getBackground());
+                    }
+                    else if (Color.white.getRed() == n2loaded && Color.white.getGreen() == n4loaded && Color.white.getBlue() == n3loaded){
+                        System.out.println("The backround color is white");
+                        System.out.println("java.awt.Color[r="+ n2loaded+",g="+ n4loaded+",b="+ n3loaded+"]");
+                      //  cd.btnSaveXml.setBackground(Color.white);
+                        Cswitch = 3;
+                        //Lskel.setbackgroundcolor(Cswitch);
+                        }
+                    else{
+                    	System.out.println("no background color match");
+                    	
+                    }
+                    	
+                  } catch (JAXBException r) { 
+                    r.printStackTrace(); 
+                    
+                  }
+			    if(Cswitch == 1) {
+        			//button_1.setBackground(Color.blue);
+			    	
+        		}
+        		else if( Cswitch == 2){
+        			//JButton button_1 = new JButton();
+        			//button_1.setBackground(Color.gray);
+        		}
+        		else if( Cswitch == 3){
+        			//button_1.setBackground(Color.white);
+        		}
+        		else{
+        			//button_1.setBackground(Color.blue);//color it back to normal when Cswitch = 0
+        			System.out.println("switch is "+ Cswitch);
+        		}
+                
+			}
+				
+			}
+		});
+		btnLoadXml.setBounds(231, 264, 97, 25);
+		getContentPane().add(btnLoadXml);
+		textField_1 = new JTextField();
+		textField_1.setBounds(334, 265, 116, 22);
+		getContentPane().add(textField_1);
+		textField_1.setColumns(10);
+	}
+	public void actionPerformed(ActionEvent e){
+	}
+}
