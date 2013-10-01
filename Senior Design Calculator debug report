@@ -1,0 +1,9 @@
+Senior Design Calculator debug report             9-30-2013
+•	The error I had while presenting my calculator demo last Wednesday was because I forgot to assign an output action for when the “6” button is pressed.
+•	I had another problem with whenever I have nothing input and I press on the “*” or any of the mathematical functions where they are supposed to grab a number while there is nothing to turn into a number. I solved that by putting an if statement to prevent the functions from running and outputting a message on the console.
+•	The XML save function works but I am not sure how to print the name of the color on xml
+
+Improvement:
+•	I was trying to create a similar environment of the game we are going to work on in a sense that it would load an XML file and would get the information and would do some changes on the GUI.
+•	Progress: I was able to get the information and translate it. However, I couldn’t get the button_1 to change its color. 
+•	Idea: loading an XML file that has a color defined in it. Translating the information to verify what color is in the file. Then changing the color of one of the buttons ( in my attempt was button_1)
