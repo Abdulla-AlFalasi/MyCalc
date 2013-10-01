@@ -1,0 +1,77 @@
+//JAXB:
+
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import java.awt.Color;
+
+@XmlRootElement
+public class JAXBskeleton {
+	Color Xcolor;
+	int Rresult;
+	int Xswitch;
+	int Cred, Cblue, Cgreen;
+	@XmlAttribute
+	public void setResult(int result) {
+		this.Rresult = result;
+	}
+	public int getResult(){
+		return Rresult;
+		
+	}
+	@XmlElement
+	public void setRedColorbackground(int Cred) { //, int Cblue, int Cgreen
+		this.Cred = Cred;
+	}
+	public int getRedColorbackground(){
+		return Cred;
+	}
+	@XmlElement
+	public void setBlueColorbackground(int Cblue) { //, int Cblue, int Cgreen
+		this.Cblue = Cblue;
+	}
+	public int getBlueColorbackground(){
+		return Cblue;
+	}
+	@XmlElement
+	public void setGreenColorbackground(int Cgreen) { //, int Cblue, int Cgreen
+		this.Cgreen = Cgreen;
+	}
+	public int getGreenColorbackground(){
+		return Cgreen;
+	}
+	public void setbackgroundcolor(int cswitch) {
+		// TODO Auto-generated method stub
+		CalcDemo cd = new CalcDemo();
+		if(cswitch == 1) {
+			cd.button_1.setBackground(Color.blue);
+		}
+		else if( cswitch == 2){
+			cd.button_1.setBackground(Color.gray);
+			//cd.getContentPane().setBackground(Color.gray);
+			//cd.setVisible(false);
+		}
+		else if( cswitch == 3){
+			cd.button_1.setBackground(Color.white);
+			
+		}
+		else{
+			//cd.button_1.setBackground(Color.blue);//color it back to normal when Cswitch = 0
+			System.out.println("switch is "+ cd.Cswitch);
+		}
+	}
+	
+	/*
+	public void setColor(Color Xcolor) {
+		this.Xcolor = Xcolor;
+	}
+	public Color getColor(){
+		return Xcolor;
+	}
+	*/
+	//@XmlAttribute
+	//public void GetColor(Color Xcolor) {
+		//this.Xcolor = Xcolor;
+	//}
+}
