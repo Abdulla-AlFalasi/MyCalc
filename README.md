@@ -3,4 +3,4 @@ MyCalac
 
 Senior Design Calculator Practice
 
-My current Improving Calculator.
+My current Calculator, Version 2.0
